@@ -9,7 +9,7 @@ QT       += qml quick
 TARGET = KinectYap
 TEMPLATE = app
 
-include(kinect.pri)
+include(src/kinect/kinect.pri)
 
 SOURCES += \
     src/main.cpp
@@ -18,5 +18,5 @@ win32{
     RC_FILE += kinect.rc
 }
 
-OTHER_FILES += kinect.pri \
+OTHER_FILES += src/kinect/kinect.pri \
     ui/main.qml
