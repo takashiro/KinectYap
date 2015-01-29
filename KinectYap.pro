@@ -4,24 +4,18 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += qml quick
 
 TARGET = KinectYap
 TEMPLATE = app
 
 include(kinect.pri)
 
-INCLUDEPATH += src/view
-
-SOURCES += src/main.cpp \
-    src/view/mainwindow.cpp
-
-HEADERS += src/view/mainwindow.h
-
-FORMS += src/view/mainwindow.ui
+SOURCES += src/main.cpp
 
 win32{
     RC_FILE += kinect.rc
 }
 
-OTHER_FILES += kinect.pri
+OTHER_FILES += kinect.pri \
+    ui/main.qml
