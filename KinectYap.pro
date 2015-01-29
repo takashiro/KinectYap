@@ -25,13 +25,16 @@ contains(QMAKE_HOST.arch, x86_64){
 }
 LIBS += -lKinect10
 
-SOURCES += main.cpp \
-    mainwindow.cpp \
-    windowsutil.cpp \
-    tnuisensorselector.cpp
+INCLUDEPATH += src/kinect
 
-HEADERS += mainwindow.h \
-    windowsutil.h \
-    tnuisensorselector.h
+SOURCES += src/main.cpp \
+    src/kinect/tnuisensorselector.cpp \
+    src/kinect/windowsutil.cpp \
+    src/view/mainwindow.cpp
 
-FORMS += mainwindow.ui
+
+HEADERS += src/kinect/tnuisensorselector.h \
+    src/kinect/windowsutil.h \
+    src/view/mainwindow.h
+
+FORMS += src/view/mainwindow.ui
