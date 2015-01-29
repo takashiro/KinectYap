@@ -7,8 +7,8 @@ Window {
     width: 640
     height: 480
 
-    TVideo{
-        id: videoView
+    TBackgroundRemovedCamera{
+        id: cameraView
         x: 0
         y: 0
         anchors.fill: parent
