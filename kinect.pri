@@ -20,10 +20,12 @@ INCLUDEPATH += src/kinect
 SOURCES += \
     src/kinect/tnuisensorselector.cpp \
     src/kinect/tbackgroundremover.cpp \
-    src/kinect/windowsutil.cpp
+    src/kinect/windowsutil.cpp \
+    src/kinect/tvideo.cpp
 
 HEADERS += \
     src/kinect/tnuisensorselector.h \
     src/kinect/tbackgroundremover.h \
     src/kinect/windowsutil.h \
-    src/kinect/stdafx.h
+    src/kinect/stdafx.h \
+    src/kinect/tvideo.h
