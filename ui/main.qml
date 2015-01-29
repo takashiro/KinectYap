@@ -7,15 +7,8 @@ Window {
     height: 480
 
     Image {
-        id: image1
+        id: backgroundImage
         anchors.fill: parent
         source: "image/default-background.jpg"
-    }
-
-    Text {
-        text: qsTr("Hello World")
-        anchors.verticalCenterOffset: -173
-        anchors.horizontalCenterOffset: -153
-        anchors.centerIn: parent
     }
 }

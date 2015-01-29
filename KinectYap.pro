@@ -11,7 +11,8 @@ TEMPLATE = app
 
 include(kinect.pri)
 
-SOURCES += src/main.cpp
+SOURCES += \
+    src/main.cpp
 
 win32{
     RC_FILE += kinect.rc
