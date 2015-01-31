@@ -28,7 +28,7 @@ Window {
             x: parent.width - width - 10
             y: 0
 
-            Button{
+            NuiButton{
                 id: snapshotButton
                 x: 0
                 y: 10
@@ -38,7 +38,7 @@ Window {
                 text: qsTr("Camera")
             }
 
-            Button{
+            NuiButton{
                 id: recordButton
                 x: 0
                 y: 64
@@ -48,7 +48,7 @@ Window {
                 text: qsTr("Record")
             }
 
-            Button{
+            NuiButton{
                 id: itemButton
                 x: 0
                 y: 148
@@ -58,7 +58,7 @@ Window {
                 text: qsTr("Items")
             }
 
-            Button{
+            NuiButton{
                 id: introductionButton
                 x: 0
                 y: 212
@@ -68,7 +68,7 @@ Window {
                 text: qsTr("Introduction")
             }
 
-            Button{
+            NuiButton{
                 id: commentButton
                 x: 0
                 y: 276
@@ -78,7 +78,7 @@ Window {
                 text: qsTr("Comment")
             }
 
-            Button{
+            NuiButton{
                 id: settingButton
                 x: 0
                 y: parent.height - height - 18
