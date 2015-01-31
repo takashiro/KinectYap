@@ -7,7 +7,7 @@ Window {
     width: 640
     height: 480
 
-    TBackgroundRemovedCamera{
+    TNuiColorCamera{
         id: cameraView
         x: 0
         y: 0
