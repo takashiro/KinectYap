@@ -31,4 +31,10 @@ Makefile*
 *.qmlproject.user
 *.qmlproject.user.*
 
+# Project
+
 sample/
+
+# Windows
+
+Thumbs.db
