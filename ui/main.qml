@@ -6,7 +6,8 @@ Window {
     visible: true
     width: 640
     height: 480
-    flags: Qt.FramelessWindowHint
+    minimumWidth: 640
+    minimumHeight: 480
 
     Image{
         id: background
