@@ -35,6 +35,7 @@ Window {
                 width: 48
                 height: 48
                 image: "image/icon/camera.png"
+                text: qsTr("Camera")
             }
 
             Button{
@@ -44,6 +45,7 @@ Window {
                 width: 48
                 height: 48
                 image: "image/icon/video.png"
+                text: qsTr("Record")
             }
 
             Button{
@@ -53,6 +55,7 @@ Window {
                 width: 48
                 height: 48
                 image: "image/icon/photo.png"
+                text: qsTr("Items")
             }
 
             Button{
@@ -62,6 +65,7 @@ Window {
                 width: 48
                 height: 48
                 image: "image/icon/text.png"
+                text: qsTr("Introduction")
             }
 
             Button{
@@ -71,6 +75,7 @@ Window {
                 width: 48
                 height: 48
                 image: "image/icon/comment.png"
+                text: qsTr("Comment")
             }
 
             Button{
@@ -80,6 +85,7 @@ Window {
                 width: 48
                 height: 48
                 image: "image/icon/setting.png"
+                text: qsTr("Settings")
             }
         }
     }
