@@ -73,13 +73,13 @@ Window {
                     }
 
                     NuiButton{
-                        id: itemButton
+                        id: changeBackgroundButton
                         x: 0
                         y: 148
                         width: 48
                         height: 48
                         image: "image/icon/photo.png"
-                        text: qsTr("Items")
+                        text: qsTr("Backgound")
                     }
 
                     NuiButton{
@@ -93,13 +93,13 @@ Window {
                     }
 
                     NuiButton{
-                        id: commentButton
+                        id: messageButton
                         x: 0
                         y: 276
                         width: 48
                         height: 48
                         image: "image/icon/comment.png"
-                        text: qsTr("Comment")
+                        text: qsTr("Message")
                     }
 
                     NuiButton{
