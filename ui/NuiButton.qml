@@ -1,5 +1,6 @@
 import QtQuick 2.3
 import QtGraphicalEffects 1.0
+import Kinect 1.0
 
 Item{
     property alias image: buttonImage.source
@@ -51,6 +52,19 @@ Item{
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);
         onClicked: touched();
+    }
+
+    TNuiMouseArea{
+        anchors.fill: parent
+        onEntered: {
+            setLabelVisble(true);
+        }
+        onExited: {
+            setLabelVisble(false);
+        }
+        onTouched: {
+            parent.touched();
+        }
     }
 
     function setLabelVisble(visible){

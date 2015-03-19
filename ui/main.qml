@@ -23,7 +23,6 @@ Window {
         y: 0
         anchors.fill: parent
 
-
         MouseArea{
             id: rightEdge
             width: 30
@@ -162,11 +161,11 @@ Window {
         }
     }
 
-    TNuiMouse{
+    /*TNuiMouse{
         id: mouse
         x: 0
         y: 0
         width: 10
         height: 10
-    }
+    }*/
 }
