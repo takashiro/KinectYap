@@ -50,6 +50,7 @@ Item{
         hoverEnabled: true
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);
+        onClicked: touched();
     }
 
     function setLabelVisble(visible){

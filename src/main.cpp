@@ -3,6 +3,9 @@
 
 #include "tnuisensormanager.h"
 #include "tnuisensor.h"
+#include "tnuitracker.h"
+#include "tnuiskeletonstream.h"
+#include "tnuiimagestream.h"
 
 const char *State2String(TNuiSensor::State state)
 {
@@ -29,6 +32,8 @@ int main(int argc, char *argv[])
         TNuiSensor::connect(sensor, &TNuiSensor::stateChanged, [&](){
             qDebug(State2String(sensor->state()));
         });
+
+        sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseSkeletonFlag);
     }
 
     QQmlApplicationEngine engine;
