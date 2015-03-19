@@ -56,15 +56,9 @@ Item{
 
     TNuiMouseArea{
         anchors.fill: parent
-        onEntered: {
-            setLabelVisble(true);
-        }
-        onExited: {
-            setLabelVisble(false);
-        }
-        onTouched: {
-            parent.touched();
-        }
+        onEntered: setLabelVisble(true);
+        onExited: setLabelVisble(false);
+        onTouched: parent.touched();
     }
 
     function setLabelVisble(visible){
