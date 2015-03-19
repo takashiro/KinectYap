@@ -33,7 +33,7 @@ Item{
         visible: false
     }
 
-    DropShadow {
+    DropShadow{
         id: labelShadow
         anchors.fill: label
         source: label
