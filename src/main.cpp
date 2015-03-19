@@ -3,9 +3,7 @@
 
 #include "tnuisensormanager.h"
 #include "tnuisensor.h"
-#include "tnuitracker.h"
-#include "tnuiskeletonstream.h"
-#include "tnuiimagestream.h"
+#include "kinectglobal.h"
 
 const char *State2String(TNuiSensor::State state)
 {
@@ -25,6 +23,7 @@ const char *State2String(TNuiSensor::State state)
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    initializeKinect();
 
     TNuiSensor *sensor = SensorManager->sensor();
     if (sensor != nullptr) {
