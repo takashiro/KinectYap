@@ -23,8 +23,15 @@ Window {
         y: 0
         anchors.fill: parent
 
+        TNuiMouseArea{
+            width: 30
+            height: parent.height
+            x: parent.width - width
+            y: 0
+            onEntered: controlPanel.slideLeft();
+        }
+
         MouseArea{
-            id: rightEdge
             width: 30
             height: parent.height
             x: parent.width - width
@@ -39,6 +46,11 @@ Window {
             height: parent.height
             x: parent.width - width
             y: 0
+
+            TNuiMouseArea{
+                anchors.fill: controlPanel
+                onExited: controlPanel.slideRight();
+            }
 
             MouseArea{
                 anchors.fill: controlPanel
