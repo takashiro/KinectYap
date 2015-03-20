@@ -1,5 +1,6 @@
-import QtQuick 2.3
+import QtQuick 2.4
 import QtQuick.Window 2.2
+import QtQml.Models 2.1
 import Kinect 1.0
 
 Window {
@@ -30,30 +31,40 @@ Window {
             y: 0
             hidingDirection: Qt.LeftToRight
 
-            buttons: ListModel{
-                ListElement{
-                    buttonImage: "image/icon/camera.png"
-                    buttonLabel: qsTr("Camera")
+            buttons: ObjectModel{
+                NuiButton{
+                    width: 48
+                    height: 48
+                    image: "image/icon/camera.png"
+                    text: qsTr("Camera")
                 }
 
-                ListElement{
-                    buttonImage: "image/icon/video.png"
-                    buttonLabel: qsTr("Record")
+                NuiButton{
+                    width: 48
+                    height: 48
+                    image: "image/icon/video.png"
+                    text: qsTr("Record")
                 }
 
-                ListElement{
-                    buttonImage: "image/icon/photo.png"
-                    buttonLabel: qsTr("Backgound")
+                NuiButton{
+                    width: 48
+                    height: 48
+                    image: "image/icon/photo.png"
+                    text: qsTr("Backgound")
                 }
 
-                ListElement{
-                    buttonImage: "image/icon/text.png"
-                    buttonLabel: qsTr("Introduction")
+                NuiButton{
+                    width: 48
+                    height: 48
+                    image: "image/icon/text.png"
+                    text: qsTr("Introduction")
                 }
 
-                ListElement{
-                    buttonImage: "image/icon/comment.png"
-                    buttonLabel: qsTr("Message")
+                NuiButton{
+                    width: 48
+                    height: 48
+                    image: "image/icon/comment.png"
+                    text: qsTr("Message")
                 }
             }
         }
@@ -65,10 +76,13 @@ Window {
             y: 0
             hidingDirection: Qt.RightToLeft
 
-            buttons: ListModel{
-                ListElement{
-                    buttonImage: "image/icon/setting.png"
-                    buttonLabel: qsTr("Settings")
+            buttons: ObjectModel{
+                NuiButton{
+                    width: 48
+                    height: 48
+                    image: "image/icon/setting.png"
+                    text: qsTr("Settings")
+                    onTouched: Qt.quit();
                 }
             }
         }

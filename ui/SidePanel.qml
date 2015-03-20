@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.4
 import Kinect 1.0
 
 Item{
@@ -47,14 +47,6 @@ Item{
                 y: 30
                 height: parent.height - y
                 spacing: 10
-                delegate: Component{
-                    NuiButton{
-                        width: 48
-                        height: 48
-                        image: buttonImage
-                        text: buttonLabel
-                    }
-                }
             }
         }
 
