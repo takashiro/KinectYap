@@ -2,14 +2,16 @@ import QtQuick 2.0
 import Kinect 1.0
 
 Item{
+    id: sidePanel
     property alias buttons: buttonList.model
+    property var hidingDirection
 
     TNuiMouseArea{
         width: parent.width * 0.6
         height: parent.height
         x: parent.width - width
         y: 0
-        onEntered: controlPanel.slideLeft();
+        onEntered: controlPanel.slidingShow();
     }
 
     MouseArea{
@@ -18,7 +20,7 @@ Item{
         x: parent.width - width
         y: 0
         hoverEnabled: true
-        onEntered: controlPanel.slideLeft();
+        onEntered: controlPanel.slidingShow();
     }
 
     Item{
@@ -30,19 +32,19 @@ Item{
 
         TNuiMouseArea{
             anchors.fill: parent
-            onExited: controlPanel.slideRight();
+            onExited: controlPanel.slidingHide();
         }
 
         MouseArea{
             anchors.fill: parent
             hoverEnabled: true
-            onExited: controlPanel.slideRight();
+            onExited: controlPanel.slidingHide();
 
             ListView{
                 id: buttonList
                 width: parent.width * 0.75
                 x: parent.width - width
-                y: 10
+                y: 30
                 height: parent.height - y
                 spacing: 10
                 delegate: Component{
@@ -57,7 +59,7 @@ Item{
         }
 
         ParallelAnimation{
-            id: slideRightAnimation
+            id: hidingAnimation
 
             PropertyAnimation {
                 target: controlPanel
@@ -68,14 +70,14 @@ Item{
             PropertyAnimation {
                 target: controlPanel
                 property: "x"
-                to: controlPanel.x + 15
+                to: controlPanel.x + (sidePanel.hidingDirection === Qt.LeftToRight ? 15 : -15)
             }
 
             onStopped: controlPanel.visible = false;
         }
 
         ParallelAnimation{
-            id: slideLeftAnimation
+            id: appearingAnimation
 
             PropertyAnimation {
                 target: controlPanel
@@ -86,20 +88,20 @@ Item{
             PropertyAnimation {
                 target: controlPanel
                 property: "x"
-                to: controlPanel.x - 15
+                to: controlPanel.x + (sidePanel.hidingDirection === Qt.LeftToRight ? -15 : 15)
             }
 
             onStarted: controlPanel.visible = true;
         }
 
-        function slideRight(){
+        function slidingHide(){
             if (opacity == 1)
-                slideRightAnimation.start();
+                    hidingAnimation.start();
         }
 
-        function slideLeft(){
+        function slidingShow(){
             if (opacity == 0)
-                slideLeftAnimation.start();
+                    appearingAnimation.start();
         }
     }
 }

@@ -28,6 +28,7 @@ Window {
             height: parent.height
             x: parent.width - width
             y: 0
+            hidingDirection: Qt.LeftToRight
 
             buttons: ListModel{
                 ListElement{
@@ -54,7 +55,17 @@ Window {
                     buttonImage: "image/icon/comment.png"
                     buttonLabel: qsTr("Message")
                 }
+            }
+        }
 
+        SidePanel{
+            width: 84
+            height: parent.height
+            x: 0
+            y: 0
+            hidingDirection: Qt.RightToLeft
+
+            buttons: ListModel{
                 ListElement{
                     buttonImage: "image/icon/setting.png"
                     buttonLabel: qsTr("Settings")
