@@ -15,7 +15,7 @@ Item{
 
     Text{
         id: label
-        x: -width - 12
+        x: 0
         y: (parent.height - height) / 2
         color: "white"
         font.pixelSize: parent.height * 0.375
@@ -62,6 +62,13 @@ Item{
     }
 
     function setLabelVisble(visible){
+        var pos = mapToItem(null, x, y);
+        if (pos.x - label.width - 12 <= 0) {
+            label.x = width + 12;
+        } else {
+            label.x = -label.width - 12;
+        }
+
         label.visible = visible;
         labelShadow.visible = visible;
     }
