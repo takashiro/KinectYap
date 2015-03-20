@@ -20,4 +20,5 @@ win32{
 
 OTHER_FILES += src/kinect/kinect.pri \
     ui/main.qml \
-    ui/NuiButton.qml
+    ui/NuiButton.qml \
+    ui/SidePanel.qml

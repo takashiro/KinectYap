@@ -30,7 +30,7 @@ Item{
         x: -width - 12
         y: (parent.height - height) / 2
         color: "white"
-        font.pixelSize: 18
+        font.pixelSize: parent.height * 0.375
         visible: false
     }
 

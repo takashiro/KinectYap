@@ -23,152 +23,42 @@ Window {
         y: 0
         anchors.fill: parent
 
-        TNuiMouseArea{
-            width: 30
-            height: parent.height
-            x: parent.width - width
-            y: 0
-            onEntered: controlPanel.slideLeft();
-        }
-
-        MouseArea{
-            width: 30
-            height: parent.height
-            x: parent.width - width
-            y: 0
-            hoverEnabled: true
-            onEntered: controlPanel.slideLeft();
-        }
-
-        Item{
-            id: controlPanel
+        SidePanel{
             width: 84
             height: parent.height
             x: parent.width - width
             y: 0
 
-            TNuiMouseArea{
-                anchors.fill: controlPanel
-                onExited: controlPanel.slideRight();
-            }
-
-            MouseArea{
-                anchors.fill: controlPanel
-                hoverEnabled: true
-                onExited: controlPanel.slideRight();
-
-                Item{
-                    id: buttonArea
-                    width: parent.width - 20
-                    height: parent.height
-                    x: 20
-
-                    NuiButton{
-                        id: snapshotButton
-                        x: 0
-                        y: 10
-                        width: 48
-                        height: 48
-                        image: "image/icon/camera.png"
-                        text: qsTr("Camera")
-                    }
-
-                    NuiButton{
-                        id: recordButton
-                        x: 0
-                        y: 64
-                        width: 48
-                        height: 48
-                        image: "image/icon/video.png"
-                        text: qsTr("Record")
-                    }
-
-                    NuiButton{
-                        id: changeBackgroundButton
-                        x: 0
-                        y: 148
-                        width: 48
-                        height: 48
-                        image: "image/icon/photo.png"
-                        text: qsTr("Backgound")
-                    }
-
-                    NuiButton{
-                        id: introductionButton
-                        x: 0
-                        y: 212
-                        width: 48
-                        height: 48
-                        image: "image/icon/text.png"
-                        text: qsTr("Introduction")
-                    }
-
-                    NuiButton{
-                        id: messageButton
-                        x: 0
-                        y: 276
-                        width: 48
-                        height: 48
-                        image: "image/icon/comment.png"
-                        text: qsTr("Message")
-                    }
-
-                    NuiButton{
-                        id: settingButton
-                        x: 0
-                        y: parent.height - height - 18
-                        width: 48
-                        height: 48
-                        image: "image/icon/setting.png"
-                        text: qsTr("Settings")
-                    }
-                }
-            }
-
-            ParallelAnimation{
-                id: slideRightAnimation
-
-                PropertyAnimation {
-                    target: controlPanel
-                    property: "opacity"
-                    to: 0
+            buttons: ListModel{
+                ListElement{
+                    buttonImage: "image/icon/camera.png"
+                    buttonLabel: qsTr("Camera")
                 }
 
-                PropertyAnimation {
-                    target: controlPanel
-                    property: "x"
-                    to: controlPanel.x + 15
+                ListElement{
+                    buttonImage: "image/icon/video.png"
+                    buttonLabel: qsTr("Record")
                 }
 
-                onStopped: controlPanel.visible = false;
-            }
-
-            ParallelAnimation{
-                id: slideLeftAnimation
-
-                PropertyAnimation {
-                    target: controlPanel
-                    property: "opacity"
-                    to: 1
+                ListElement{
+                    buttonImage: "image/icon/photo.png"
+                    buttonLabel: qsTr("Backgound")
                 }
 
-                PropertyAnimation {
-                    target: controlPanel
-                    property: "x"
-                    to: controlPanel.x - 15
+                ListElement{
+                    buttonImage: "image/icon/text.png"
+                    buttonLabel: qsTr("Introduction")
                 }
 
-                onStarted: controlPanel.visible = true;
-            }
+                ListElement{
+                    buttonImage: "image/icon/comment.png"
+                    buttonLabel: qsTr("Message")
+                }
 
-            function slideRight(){
-                if (opacity == 1)
-                    slideRightAnimation.start();
-            }
-
-            function slideLeft(){
-                if (opacity == 0)
-                    slideLeftAnimation.start();
+                ListElement{
+                    buttonImage: "image/icon/setting.png"
+                    buttonLabel: qsTr("Settings")
+                }
             }
         }
     }
