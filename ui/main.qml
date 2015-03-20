@@ -90,11 +90,16 @@ Window {
         }
     }
 
-    /*TNuiMouse{
-        id: mouse
+    TNuiTrackerItem{
         x: 0
         y: 0
         width: 10
         height: 10
-    }*/
+
+        Rectangle{
+            color: "#00FF00"
+            anchors.fill: parent
+            radius: 5
+        }
+    }
 }
