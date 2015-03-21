@@ -91,15 +91,10 @@ Window {
     }
 
     TNuiTrackerItem{
-        x: 0
-        y: 0
-        width: 10
-        height: 10
-
-        Rectangle{
-            color: "#00FF00"
-            anchors.fill: parent
-            radius: 5
-        }
+        id: rightTracker
+    }
+    MagicLight{
+        centerX: rightTracker.x
+        centerY: rightTracker.y
     }
 }

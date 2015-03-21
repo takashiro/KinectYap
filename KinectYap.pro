@@ -18,7 +18,10 @@ win32{
     RC_FILE += kinect.rc
 }
 
-OTHER_FILES += src/kinect/kinect.pri \
+OTHER_FILES += src/kinect/kinect.pri
+
+DISTFILES += \
     ui/main.qml \
-    ui/NuiButton.qml \
-    ui/SidePanel.qml
+    ui/SidePanel.qml \
+    ui/MagicLight.qml \
+    ui/NuiButton.qml
