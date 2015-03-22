@@ -14,7 +14,9 @@ Item {
         source: "qrc:///particleresources/glowdot.png"
         color: "cyan"
         alpha: 0
-        SequentialAnimation on color {
+
+        //The Color animation need to be temporarily off for the particles may be occasionally invisible
+        /*SequentialAnimation on color {
             loops: Animation.Infinite
             ColorAnimation {
                 from: "cyan"
@@ -36,7 +38,8 @@ Item {
                 to: "cyan"
                 duration: 2000
             }
-        }
+        }*/
+
         colorVariation: 0.3
     }
     Emitter {
