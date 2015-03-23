@@ -44,7 +44,7 @@ Item{
                 id: buttonList
                 width: parent.width * 0.75
                 x: parent.width - width
-                y: 30
+                y: 50
                 height: parent.height - y
                 spacing: 10
             }

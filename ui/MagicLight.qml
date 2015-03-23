@@ -7,19 +7,16 @@ Item {
 
     ParticleSystem {
         ImageParticle {
-            x: 0
-            y: 0
             source: "qrc:///particleresources/glowdot.png"
             color: "cyan"
+            colorVariation: 0.3
             alpha: 0
         }
         Emitter {
-            id: trailsNormal
-
             x: centerX
             y: centerY
 
-            emitRate: 250
+            emitRate: 500
             lifeSpan: 1000
 
             velocity: PointDirection {xVariation: 4; yVariation: 4;}
@@ -34,15 +31,16 @@ Item {
 
     ParticleSystem {
         ImageParticle {
-            color: "cyan"
-            alpha: 0
             source: "qrc:///particleresources/star.png"
+            color: "cyan"
+            colorVariation: 0.5
+            alpha: 0
         }
         Emitter {
             x: centerX
             y: centerY
 
-            emitRate: 50
+            emitRate: 100
             lifeSpan: 1100
 
             velocity: PointDirection {xVariation: 4; yVariation: 4;}
@@ -59,13 +57,14 @@ Item {
         ImageParticle {
             source: "qrc:///particleresources/glowdot.png"
             color: "green"
+            colorVariation: 0.2
             alpha: 0
         }
         Emitter {
             x: centerX
             y: centerY
 
-            emitRate: 150
+            emitRate: 300
             lifeSpan: 1000
 
             velocityFromMovement: 16
@@ -83,13 +82,14 @@ Item {
         ImageParticle {
             source: "qrc:///particleresources/star.png"
             color: "red"
+            colorVariation: 0.5
             alpha: 0
         }
         Emitter {
             x: centerX
             y: centerY
 
-            emitRate: 25
+            emitRate: 50
             lifeSpan: 1100
 
             velocityFromMovement: 16
