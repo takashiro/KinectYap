@@ -92,9 +92,19 @@ Window {
 
     TNuiTrackerItem{
         id: rightTracker
+        target: "hand_right"
     }
     MagicLight{
         centerX: rightTracker.x
         centerY: rightTracker.y
+    }
+
+    TNuiTrackerItem{
+        id: leftTracker
+        target: "hand_left"
+    }
+    MagicLight{
+        centerX: leftTracker.x
+        centerY: leftTracker.y
     }
 }

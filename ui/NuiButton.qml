@@ -16,7 +16,7 @@ Item{
     Text{
         id: label
         x: 0
-        y: (parent.height - height) / 2
+        y: (parent.height - height) * 0.5
         color: "white"
         font.pixelSize: parent.height * 0.375
         visible: false
