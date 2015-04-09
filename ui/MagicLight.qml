@@ -35,6 +35,9 @@ Item {
             color: "cyan"
             colorVariation: 0.5
             alpha: 0
+            Timer{
+                onTriggered: parent.color = Qt.rgba(Math.random() * 0xFF, 0, Math.random() * 0xFF, 0);
+            }
         }
         Emitter {
             x: centerX

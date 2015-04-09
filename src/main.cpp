@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
             qDebug(State2String(sensor->state()));
         });
 
-        sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseSkeletonFlag);
+        sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseSkeletonFlag | TNuiSensor::UseDepthFlag);
     }
 
     QQmlApplicationEngine engine;
