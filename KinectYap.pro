@@ -10,6 +10,7 @@ TARGET = KinectYap
 TEMPLATE = app
 
 include(src/kinect/kinect.pri)
+include(src/breakpad/breakpad.pri)
 
 SOURCES += \
     src/main.cpp
@@ -18,7 +19,8 @@ win32{
     RC_FILE += kinect.rc
 }
 
-OTHER_FILES += src/kinect/kinect.pri
+OTHER_FILES += src/kinect/kinect.pri \
+    src/breakpad/breakpad.pri
 
 DISTFILES += \
     ui/main.qml \
