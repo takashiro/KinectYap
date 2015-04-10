@@ -5,6 +5,8 @@
 #include "tnuisensor.h"
 #include "kinectglobal.h"
 
+#include "handler/exception_handler.h"
+
 const char *State2String(TNuiSensor::State state)
 {
     switch(state){
@@ -22,6 +24,8 @@ const char *State2String(TNuiSensor::State state)
 
 int main(int argc, char *argv[])
 {
+    google_breakpad::ExceptionHandler eh(L"./dmp", NULL, NULL, NULL, google_breakpad::ExceptionHandler::HANDLER_ALL);
+
     QGuiApplication app(argc, argv);
     initializeKinect();
 
@@ -32,7 +36,7 @@ int main(int argc, char *argv[])
             qDebug(State2String(sensor->state()));
         });
 
-        sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseSkeletonFlag | TNuiSensor::UseDepthFlag);
+        sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseDepthAndPlayerIndexFlag);
     }
 
     QQmlApplicationEngine engine;
