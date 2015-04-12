@@ -53,6 +53,7 @@ Window {
                     height: 48
                     image: "image/icon/photo.png"
                     text: qsTr("Backgound")
+                    onTouched: cameraView.backgroundRemoved = !cameraView.backgroundRemoved;
                 }
 
                 NuiButton{
@@ -67,6 +68,10 @@ Window {
                     height: 48
                     image: "image/icon/comment.png"
                     text: qsTr("Message")
+                    onTouched: {
+                        leftHandLight.visible = !leftHandLight.visible;
+                        rightHandLight.visible = !rightHandLight.visible;
+                    }
                 }
             }
         }
@@ -95,8 +100,10 @@ Window {
         target: "hand_right"
     }
     MagicLight{
+        id: rightHandLight
         centerX: rightTracker.x
         centerY: rightTracker.y
+        visible: false
     }
 
     TNuiTrackerItem{
@@ -104,7 +111,9 @@ Window {
         target: "hand_left"
     }
     MagicLight{
+        id: leftHandLight
         centerX: leftTracker.x
         centerY: leftTracker.y
+        visible: false
     }
 }
