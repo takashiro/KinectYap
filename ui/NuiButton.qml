@@ -54,7 +54,7 @@ Item{
         onClicked: touched();
     }
 
-    TNuiMouseArea{
+    TNuiHandArea{
         anchors.fill: parent
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);

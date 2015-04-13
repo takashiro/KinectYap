@@ -6,7 +6,7 @@ Item{
     property alias buttons: buttonList.model
     property var hidingDirection
 
-    TNuiMouseArea{
+    TNuiHandArea{
         width: parent.width * 0.6
         height: parent.height
         x: hidingDirection === Qt.LeftToRight ? parent.width - width : 0
@@ -30,7 +30,7 @@ Item{
         x: parent.width - width
         y: 0
 
-        TNuiMouseArea{
+        TNuiHandArea{
             anchors.fill: parent
             onExited: controlPanel.slidingHide();
         }
