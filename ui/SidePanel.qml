@@ -9,7 +9,7 @@ Item{
     TNuiMouseArea{
         width: parent.width * 0.6
         height: parent.height
-        x: parent.width - width
+        x: hidingDirection === Qt.LeftToRight ? parent.width - width : 0
         y: 0
         onEntered: controlPanel.slidingShow();
     }
@@ -17,7 +17,7 @@ Item{
     MouseArea{
         width: parent.width * 0.6
         height: parent.height
-        x: parent.width - width
+        x: hidingDirection === Qt.LeftToRight ? parent.width - width : 0
         y: 0
         hoverEnabled: true
         onEntered: controlPanel.slidingShow();
