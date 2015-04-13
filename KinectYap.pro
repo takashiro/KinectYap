@@ -9,6 +9,8 @@ QT       += qml quick
 TARGET = KinectYap
 TEMPLATE = app
 
+WORKING_DIR = $$system_path($$PWD)
+
 include(src/kinect/kinect.pri)
 include(src/breakpad/breakpad.pri)
 
