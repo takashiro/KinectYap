@@ -51,14 +51,14 @@ Item{
         hoverEnabled: true
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);
-        onClicked: touched();
+        onClicked: longTouched();
     }
 
     TNuiHandArea{
         anchors.fill: parent
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);
-        onLongTouched: parent.longTouched();
+        onLongTouched: longTouched();
     }
 
     function setLabelVisble(visible){
