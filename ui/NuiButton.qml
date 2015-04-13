@@ -6,7 +6,7 @@ Item{
     property alias image: buttonImage.source
     property alias text: label.text
 
-    signal touched()
+    signal longTouched()
 
     Image{
         id: buttonImage
@@ -58,7 +58,7 @@ Item{
         anchors.fill: parent
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);
-        onTouched: parent.touched();
+        onLongTouched: parent.longTouched();
     }
 
     function setLabelVisble(visible){
