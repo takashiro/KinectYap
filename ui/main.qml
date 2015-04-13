@@ -68,10 +68,6 @@ Window {
                     height: 48
                     image: "image/icon/comment.png"
                     text: qsTr("Message")
-                    onTouched: {
-                        leftHandLight.visible = !leftHandLight.visible;
-                        rightHandLight.visible = !rightHandLight.visible;
-                    }
                 }
             }
         }
@@ -97,6 +93,17 @@ Window {
                     height: 48
                     image: "image/icon/setting.png"
                     text: qsTr("Settings")
+                }
+
+                NuiButton{
+                    width: 48
+                    height: 48
+                    image: "image/icon/magic.png"
+                    text: qsTr("Debug")
+                    onTouched: {
+                        leftHandLight.visible = !leftHandLight.visible;
+                        rightHandLight.visible = !rightHandLight.visible;
+                    }
                 }
             }
         }
