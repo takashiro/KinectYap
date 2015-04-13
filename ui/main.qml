@@ -45,13 +45,13 @@ Window {
                     width: 48
                     height: 48
                     image: "image/icon/video.png"
-                    text: qsTr("Record")
+                    text: qsTr("Videos")
                 }
 
                 NuiButton{
                     width: 48
                     height: 48
-                    image: "image/icon/photo.png"
+                    image: "image/icon/background.png"
                     text: qsTr("Backgound")
                     onTouched: cameraView.backgroundRemoved = !cameraView.backgroundRemoved;
                 }
@@ -59,15 +59,15 @@ Window {
                 NuiButton{
                     width: 48
                     height: 48
-                    image: "image/icon/text.png"
+                    image: "image/icon/introduction.png"
                     text: qsTr("Introduction")
                 }
 
                 NuiButton{
                     width: 48
                     height: 48
-                    image: "image/icon/comment.png"
-                    text: qsTr("Message")
+                    image: "image/icon/talk.png"
+                    text: qsTr("Talk")
                 }
             }
         }
