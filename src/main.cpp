@@ -29,6 +29,9 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     initializeKinect();
 
+    QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("ui/main.qml")));
+
     TNuiSensor *sensor = SensorManager->sensor();
     if (sensor != nullptr) {
         qDebug(State2String(sensor->state()));
@@ -38,9 +41,6 @@ int main(int argc, char *argv[])
 
         sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseDepthAndPlayerIndexFlag);
     }
-
-    QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("ui/main.qml")));
 
     return app.exec();
 }
