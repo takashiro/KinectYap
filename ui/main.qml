@@ -87,9 +87,16 @@ Window {
                 NuiButton{
                     width: 48
                     height: 48
+                    image: "image/icon/exit.png"
+                    text: qsTr("Exit")
+                    onTouched: Qt.quit();
+                }
+
+                NuiButton{
+                    width: 48
+                    height: 48
                     image: "image/icon/setting.png"
                     text: qsTr("Settings")
-                    onTouched: Qt.quit();
                 }
             }
         }

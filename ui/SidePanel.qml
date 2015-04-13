@@ -46,7 +46,7 @@ Item{
                 x: parent.width - width
                 y: 50
                 height: parent.height - y
-                spacing: 10
+                spacing: 15
             }
         }
 
