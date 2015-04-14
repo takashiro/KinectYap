@@ -33,7 +33,8 @@ Makefile*
 
 # Project
 
-sample/
+/sample/
+/dmp/
 
 # Windows
 
