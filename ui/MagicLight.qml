@@ -6,6 +6,8 @@ Item {
     property real centerY: 0
 
     ParticleSystem {
+        running: parent.visible
+
         ImageParticle {
             source: "qrc:///particleresources/glowdot.png"
             color: "cyan"
@@ -30,6 +32,8 @@ Item {
 
 
     ParticleSystem {
+        running: parent.visible
+
         ImageParticle {
             source: "qrc:///particleresources/star.png"
             color: "cyan"
@@ -57,6 +61,8 @@ Item {
 
 
     ParticleSystem {
+        running: parent.visible
+
         ImageParticle {
             source: "qrc:///particleresources/glowdot.png"
             color: "green"
@@ -82,6 +88,8 @@ Item {
 
 
     ParticleSystem {
+        running: parent.visible
+
         ImageParticle {
             source: "qrc:///particleresources/star.png"
             color: "red"
