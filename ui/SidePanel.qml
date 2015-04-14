@@ -11,7 +11,7 @@ Item{
         height: parent.height
         x: hidingDirection === Qt.LeftToRight ? parent.width - width : 0
         y: 0
-        onEntered: controlPanel.slidingShow();
+        onEntered: sidePanel.slidingShow();
     }
 
     MouseArea{
@@ -20,7 +20,7 @@ Item{
         x: hidingDirection === Qt.LeftToRight ? parent.width - width : 0
         y: 0
         hoverEnabled: true
-        onEntered: controlPanel.slidingShow();
+        onEntered: sidePanel.slidingShow();
     }
 
     Item{
@@ -32,13 +32,13 @@ Item{
 
         TNuiHandArea{
             anchors.fill: parent
-            onExited: controlPanel.slidingHide();
+            onExited: sidePanel.slidingHide();
         }
 
         MouseArea{
             anchors.fill: parent
             hoverEnabled: true
-            onExited: controlPanel.slidingHide();
+            onExited: sidePanel.slidingHide();
 
             ListView{
                 id: buttonList
@@ -85,15 +85,15 @@ Item{
 
             onStarted: controlPanel.visible = true;
         }
+    }
 
-        function slidingHide(){
-            if (opacity == 1)
-                    hidingAnimation.start();
-        }
+    function slidingHide(){
+        if (controlPanel.opacity == 1)
+                hidingAnimation.start();
+    }
 
-        function slidingShow(){
-            if (opacity == 0)
-                    appearingAnimation.start();
-        }
+    function slidingShow(){
+        if (controlPanel.opacity == 0)
+                appearingAnimation.start();
     }
 }
