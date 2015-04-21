@@ -12,7 +12,7 @@ Item {
     Text{
         id: label
         color: "white"
-        font.pointSize: 40
+        font.pointSize: 60
     }
 
     DropShadow{
@@ -25,7 +25,7 @@ Item {
         color: "#000000"
         horizontalOffset: 1
         verticalOffset: 1
-        visible: false
+        visible: label.visible
     }
 
     Timer{

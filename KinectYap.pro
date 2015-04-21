@@ -31,4 +31,5 @@ DISTFILES += \
     ui/SidePanel.qml \
     ui/MagicLight.qml \
     ui/NuiButton.qml \
-    ui/Countdown.qml
+    ui/Countdown.qml \
+    ui/ImageSlider.qml

@@ -16,12 +16,13 @@ Window {
         id: cameraView
         anchors.fill: parent
 
-        Image{
+        ImageSlider{
             id: background
             x: 0
             y: 0
             anchors.fill: parent
-            source: "image/default-background.jpg"
+            folder: "image/background/"
+            onRollback: camera.backgroundRemoved = false;
         }
 
         TNuiColorCamera{
@@ -71,7 +72,13 @@ Window {
                         height: 48
                         image: "image/icon/background.png"
                         text: qsTr("Backgound")
-                        onLongTouched: camera.backgroundRemoved = !camera.backgroundRemoved;
+                        onLongTouched: {
+                            if (camera.backgroundRemoved) {
+                                background.gotoNext();
+                            } else {
+                                camera.backgroundRemoved = true;
+                            }
+                        }
                     }
 
                     NuiButton{
