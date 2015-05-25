@@ -4,6 +4,7 @@
 #include "tnuisensormanager.h"
 #include "tnuisensor.h"
 #include "kinectglobal.h"
+#include "tnuiinteractionstream.h"
 
 #include "handler/exception_handler.h"
 
@@ -39,7 +40,7 @@ int main(int argc, char *argv[])
             qDebug(State2String(sensor->state()));
         });
 
-        sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseDepthAndPlayerIndexFlag);
+        sensor->initialize(TNuiSensor::UseColorFlag | TNuiSensor::UseDepthAndPlayerIndexFlag | TNuiSensor::UseSkeletonFlag);
     }
 
     return app.exec();

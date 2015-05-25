@@ -7,6 +7,8 @@ Item{
     property alias text: label.text
 
     signal longTouched()
+    signal pressDown()
+    signal pressUp()
 
     Image{
         id: buttonImage
@@ -59,6 +61,8 @@ Item{
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);
         onLongTouched: parent.longTouched();
+        onPressDown: parent.pressDown();
+        onPressUp: parent.pressUp();
     }
 
     function setLabelVisble(visible){

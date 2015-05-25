@@ -57,7 +57,7 @@ Window {
                         height: 48
                         image: "image/icon/camera.png"
                         text: qsTr("Camera")
-                        onLongTouched: cameraTimer.start();
+                        onPressDown: cameraTimer.start();
                     }
 
                     NuiButton{
@@ -72,7 +72,7 @@ Window {
                         height: 48
                         image: "image/icon/background.png"
                         text: qsTr("Backgound")
-                        onLongTouched: {
+                        onPressDown: {
                             if (camera.backgroundRemoved) {
                                 background.gotoNext();
                             } else {
@@ -111,7 +111,7 @@ Window {
                         height: 48
                         image: "image/icon/exit.png"
                         text: qsTr("Exit")
-                        onLongTouched: Qt.quit();
+                        onPressDown: Qt.quit();
                     }
 
                     NuiButton{
@@ -126,7 +126,7 @@ Window {
                         height: 48
                         image: "image/icon/magic.png"
                         text: qsTr("Debug")
-                        onLongTouched: {
+                        onPressDown: {
                             leftHandLight.visible = !leftHandLight.visible;
                             rightHandLight.visible = !rightHandLight.visible;
                         }
