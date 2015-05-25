@@ -11,7 +11,7 @@ TEMPLATE = app
 
 WORKING_DIR = $$system_path($$PWD)
 
-KINECT_LIB = KinectBackgroundRemoval KinectInteraction
+KINECT_LIB = KinectBackgroundRemoval
 include(src/kinect/kinect.pri)
 
 include(src/breakpad/breakpad.pri)
