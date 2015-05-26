@@ -58,8 +58,15 @@ Item{
 
     TNuiHandArea{
         anchors.fill: parent
+
         onEntered: setLabelVisble(true);
-        onExited: setLabelVisble(false);
+        onExited: {
+            parent.scale = 1.0;
+            setLabelVisble(false);
+        }
+
+        onHandZChanged: parent.scale = initialHandZ / handZ;
+
         onLongTouched: parent.longTouched();
         onPressDown: parent.pressDown();
         onPressUp: parent.pressUp();
