@@ -8,9 +8,7 @@ Window {
     width: 640
     height: 480
     minimumWidth: 640
-    maximumWidth: 640
     minimumHeight: 480
-    maximumHeight: 480
 
     Item {
         id: cameraView
@@ -30,6 +28,7 @@ Window {
             x: 0
             y: 0
             anchors.fill: parent
+            antialiasing: true
 
             Countdown{
                 anchors.centerIn: parent
@@ -126,35 +125,40 @@ Window {
                         height: 48
                         image: "image/icon/magic.png"
                         text: qsTr("Debug")
-                        onPressDown: {
-                            leftHandLight.visible = !leftHandLight.visible;
-                            rightHandLight.visible = !rightHandLight.visible;
-                        }
+
+                        onPressDown: toggleHandLight();
+                        onClicked: toggleHandLight();
                     }
                 }
             }
         }
     }
 
-    TNuiTrackerItem{
-        id: rightTracker
+    function toggleHandLight()
+    {
+        leftHandLight.visible = !leftHandLight.visible;
+        rightHandLight.visible = !rightHandLight.visible;
+    }
+
+    TNuiSkeleton{
+        id: rightHand
         target: "hand_right"
     }
     MagicLight{
         id: rightHandLight
-        centerX: rightTracker.x
-        centerY: rightTracker.y
+        centerX: rightHand.x
+        centerY: rightHand.y
         visible: false
     }
 
-    TNuiTrackerItem{
-        id: leftTracker
+    TNuiSkeleton{
+        id: leftHand
         target: "hand_left"
     }
     MagicLight{
         id: leftHandLight
-        centerX: leftTracker.x
-        centerY: leftTracker.y
+        centerX: leftHand.x
+        centerY: leftHand.y
         visible: false
     }
 }
