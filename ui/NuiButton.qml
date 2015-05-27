@@ -9,6 +9,7 @@ Item{
     signal longTouched()
     signal pressDown()
     signal pressUp()
+    signal clicked()
 
     Image{
         id: buttonImage
@@ -53,7 +54,7 @@ Item{
         hoverEnabled: true
         onEntered: setLabelVisble(true);
         onExited: setLabelVisble(false);
-        onClicked: parent.longTouched();
+        onClicked: parent.clicked();
     }
 
     TNuiHandArea{
