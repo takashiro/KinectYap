@@ -30,6 +30,14 @@ Window {
             anchors.fill: parent
             antialiasing: true
 
+            SensorState{
+                width: 100
+                height: 24
+                x: 10
+                y: parent.height - height - 10
+                font.pixelSize: 18
+            }
+
             Countdown{
                 anchors.centerIn: parent
 

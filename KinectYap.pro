@@ -32,4 +32,5 @@ DISTFILES += \
     ui/MagicLight.qml \
     ui/NuiButton.qml \
     ui/Countdown.qml \
-    ui/ImageSlider.qml
+    ui/ImageSlider.qml \
+    ui/SensorState.qml
