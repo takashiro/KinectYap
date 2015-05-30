@@ -28,7 +28,6 @@ Item {
     {
         label.visible = true;
         label.text = text;
-        clearLabelTimer.start();
     }
 
     Connections {
@@ -37,6 +36,7 @@ Item {
             switch (NuiSensor.state) {
             case "connected":
                 makeToast(qsTr("Connected."));
+                clearLabelTimer.start();
                 break;
             case "initializing":
                 makeToast(qsTr("Initializing..."));
