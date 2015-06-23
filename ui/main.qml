@@ -140,6 +140,10 @@ Window {
                 }
             }
         }
+
+        VirtualScene {
+            anchors.fill: parent
+        }
     }
 
     function toggleHandLight()

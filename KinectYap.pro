@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += qml quick
+QT       += qml quick 3dcore 3dquick 3dquickrenderer
 
 TARGET = KinectYap
 TEMPLATE = app
@@ -33,4 +33,5 @@ DISTFILES += \
     ui/NuiButton.qml \
     ui/Countdown.qml \
     ui/ImageSlider.qml \
-    ui/SensorState.qml
+    ui/SensorState.qml \
+    ui/VirtualScene.qml
