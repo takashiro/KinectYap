@@ -1,13 +1,9 @@
 import Qt3D 2.0
-import Qt3D.Render 2.0
+import Qt3D.Renderer 2.0
 import QtQuick.Scene3D 2.0
-
-import QtQuick 2.0 as QQ2
+import Kinect 1.0
 
 Scene3D {
-    focus: true
-    aspects: "input"
-
     Entity {
         id: sceneRoot
 
@@ -15,16 +11,12 @@ Scene3D {
             id: camera
             projectionType: CameraLens.PerspectiveProjection
             fieldOfView: 45
-            aspectRatio: 16 / 9
+            aspectRatio: 4 / 3
             nearPlane : 0.1
             farPlane : 1000.0
-            position: Qt.vector3d( 0.0, 0.0, -40.0 )
+            position: Qt.vector3d( 0, 0, -300.0 )
             upVector: Qt.vector3d( 0.0, 1.0, 0.0 )
             viewCenter: Qt.vector3d( 0.0, 0.0, 0.0 )
-        }
-
-        Configuration  {
-            controlledCamera: camera
         }
 
         components: [
@@ -46,18 +38,22 @@ Scene3D {
             }
         ]
 
-        PhongMaterial {
-            id: material
+        TNuiSkeleton{
+            id: rightHand
+            target: "hand_right"
+
+            onRealPosChanged: {
+                exampleObject.x = -realPos.x * 200;
+                exampleObject.y = realPos.y * 200;
+                //exampleObject.z = realPos.z * 200;
+            }
         }
 
-        SphereMesh {
-            id: sphereMesh
-            radius: 3
-        }
-
-        Entity {
-            id: sphereEntity
-            components: [ sphereMesh, material ]
+        GeneralEntity {
+            id: exampleObject
+            mesh: "model/cross-pot.obj"
+            material: "model/pot_normal.webp"
+            diffuse: "model/pot.webp"
         }
     }
 }

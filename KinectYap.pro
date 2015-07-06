@@ -34,4 +34,5 @@ DISTFILES += \
     ui/Countdown.qml \
     ui/ImageSlider.qml \
     ui/SensorState.qml \
-    ui/VirtualScene.qml
+    ui/VirtualScene.qml \
+    ui/GeneralEntity.qml
