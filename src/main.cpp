@@ -2,12 +2,11 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include <handler/exception_handler.h>
+
 #include "tnuisensormanager.h"
 #include "tnuisensor.h"
 #include "kinectglobal.h"
-#include "tnuiinteractionstream.h"
-
-#include "handler/exception_handler.h"
 
 int main(int argc, char *argv[])
 {
