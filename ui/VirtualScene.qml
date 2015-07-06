@@ -14,9 +14,9 @@ Scene3D {
             aspectRatio: 4 / 3
             nearPlane : 0.1
             farPlane : 1000.0
-            position: Qt.vector3d( 0, 0, -300.0 )
-            upVector: Qt.vector3d( 0.0, 1.0, 0.0 )
-            viewCenter: Qt.vector3d( 0.0, 0.0, 0.0 )
+            position: Qt.vector3d(0, 0, 0)
+            upVector: Qt.vector3d(0.0, 1.0, 0.0)
+            viewCenter: Qt.vector3d(0.0, 0.0, 0.0)
         }
 
         components: [
@@ -43,9 +43,11 @@ Scene3D {
             target: "hand_right"
 
             onRealPosChanged: {
-                exampleObject.x = -realPos.x * 200;
-                exampleObject.y = realPos.y * 200;
-                //exampleObject.z = realPos.z * 200;
+                var kinectFarPlane = 5;
+                var ratio = camera.farPlane / kinectFarPlane;
+                exampleObject.x = realPos.x * ratio;
+                exampleObject.y = realPos.y * ratio;
+                exampleObject.z = -realPos.z * ratio;
             }
         }
 
