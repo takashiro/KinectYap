@@ -39,15 +39,38 @@ Scene3D {
         ]
 
         TNuiSkeleton{
+            id: leftHand
+            target: "hand_left"
+            onRealPosChanged: {
+                if (exampleObject.targetHand == "left") {
+                    exampleObject.attachToPosition(realPos);
+                }
+
+                if (exampleObject.inBothHand) {
+                    var d = realPos.minus(rightHand.realPos);
+                    if (d.length() > 0.07) {
+                        exampleObject.targetHand = "right";
+                        exampleObject.inBothHand = false;
+                    }
+                }
+            }
+        }
+
+        TNuiSkeleton{
             id: rightHand
             target: "hand_right"
-
             onRealPosChanged: {
-                var kinectFarPlane = 5;
-                var ratio = camera.farPlane / kinectFarPlane;
-                exampleObject.x = realPos.x * ratio;
-                exampleObject.y = realPos.y * ratio;
-                exampleObject.z = -realPos.z * ratio;
+                if (exampleObject.targetHand == "right") {
+                    exampleObject.attachToPosition(realPos);
+                }
+
+                if (exampleObject.inBothHand) {
+                    var d = realPos.minus(leftHand.realPos);
+                    if (d.length() > 0.07) {
+                        exampleObject.targetHand = "left";
+                        exampleObject.inBothHand = false;
+                    }
+                }
             }
         }
 
@@ -56,6 +79,21 @@ Scene3D {
             mesh: "model/cross-pot.obj"
             material: "model/pot_normal.webp"
             diffuse: "model/pot.webp"
+
+            property string targetHand: "left"
+            property bool inBothHand: false
+
+            function attachToPosition(realPos){
+                var kinectFarPlane = 5;
+                var ratio = camera.farPlane / kinectFarPlane;
+                x = realPos.x * ratio;
+                y = realPos.y * ratio;
+                z = -realPos.z * ratio;
+
+                var d = leftHand.realPos.minus(rightHand.realPos);
+                if (d.length() <= 0.05)
+                    inBothHand = true;
+            }
         }
     }
 }

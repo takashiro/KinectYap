@@ -9,6 +9,7 @@ Window {
     height: 480
     minimumWidth: 640
     minimumHeight: 480
+    color: "black"
 
     Item {
         id: cameraView
@@ -20,7 +21,11 @@ Window {
             y: 0
             anchors.fill: parent
             folder: "image/background/"
-            onRollback: camera.backgroundRemoved = false;
+            onRollback: {
+                visible = false;
+                camera.backgroundRemoved = false;
+            }
+            visible: false
         }
 
         TNuiColorCamera{
@@ -38,14 +43,64 @@ Window {
                 font.pixelSize: 18
             }
 
+            Image{
+                id: photo
+                opacity: 0
+            }
+
+            SequentialAnimation{
+                id: showPhotoAnimation
+
+                PauseAnimation{
+                    duration: 1000
+                }
+
+                ParallelAnimation{
+                    PropertyAnimation{
+                        target: photo
+                        property: "rotation"
+                        from: 0
+                        to: 20
+                    }
+                    PropertyAnimation{
+                        target: photo
+                        property: "scale"
+                        from: 1.0
+                        to: 0.7
+                    }
+                }
+
+                PauseAnimation{
+                    duration: 1000
+                }
+
+                PropertyAnimation{
+                    target: photo
+                    property: "opacity"
+                    from: 1
+                    to: 0
+                }
+
+                onStarted: photo.opacity = 1;
+                onStopped: photo.source = "";
+            }
+
             Countdown{
-                anchors.centerIn: parent
+                anchors.fill: parent
 
                 id: cameraTimer
                 maxNumber: 3
                 onTriggered: {
                     cameraView.grabToImage(function(result){
-                        result.saveToFile("photo.jpg");
+                        var today = new Date();
+                        var date = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
+                        date += ' ' + today.getHours();
+                        date += today.getMinutes();
+                        date += today.getSeconds();
+                        var fileName = "photo_" + date + ".jpg";
+                        result.saveToFile(fileName);
+                        photo.source = "../" + fileName;
+                        showPhotoAnimation.start();
                     });
                 }
             }
@@ -65,13 +120,17 @@ Window {
                         image: "image/icon/camera.png"
                         text: qsTr("Camera")
                         onPressDown: cameraTimer.start();
+                        onClicked: cameraTimer.start();
                     }
 
                     NuiButton{
                         width: 48
                         height: 48
-                        image: "image/icon/video.png"
-                        text: qsTr("Videos")
+                        image: "image/icon/roll.png"
+                        text: qsTr("Item")
+                        onPressDown: {
+                            virtualScene.setSource()
+                        }
                     }
 
                     NuiButton{
@@ -84,6 +143,7 @@ Window {
                                 background.gotoNext();
                             } else {
                                 camera.backgroundRemoved = true;
+                                background.visible = true;
                             }
                         }
                     }
@@ -93,6 +153,14 @@ Window {
                         height: 48
                         image: "image/icon/introduction.png"
                         text: qsTr("Introduction")
+                    }
+
+                    NuiButton{
+                        width: 48
+                        height: 48
+                        image: "image/icon/video.png"
+                        text: qsTr("Video")
+                        onPressDown: cameraTimer.start();
                     }
 
                     NuiButton{
@@ -134,14 +202,23 @@ Window {
                         image: "image/icon/magic.png"
                         text: qsTr("Debug")
 
-                        onPressDown: toggleHandLight();
+                        onLongTouched: toggleHandLight();
                         onClicked: toggleHandLight();
                     }
                 }
             }
+
+            Connections{
+                target: NuiSensor
+                onConnected: {
+                    leftPanel.slidingHide();
+                    rightPanel.slidingHide();
+                }
+            }
         }
 
-        VirtualScene {
+        Loader{
+            id: virtualScene
             anchors.fill: parent
         }
     }

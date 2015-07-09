@@ -9,6 +9,30 @@ Item {
 
     signal triggered
 
+    Rectangle{
+        id: flashLight
+        anchors.fill: parent
+        opacity: 0
+    }
+
+    SequentialAnimation{
+        id: flashLightAnimation
+        PropertyAnimation{
+            target: flashLight
+            property: "opacity"
+            from: 0
+            to: 0.5
+            duration: 200
+        }
+        PropertyAnimation{
+            target: flashLight
+            property: "opacity"
+            from: 0.5
+            to: 0
+            duration: 200
+        }
+    }
+
     Text{
         id: label
         color: "white"
@@ -35,10 +59,12 @@ Item {
         onTriggered: {
             if (currentNumber == 0) {
                 label.text = "";
+                flashLightAnimation.start();
                 stop();
                 parent.triggered();
             } else {
                 label.text = currentNumber;
+                flashLightAnimation.start();
                 currentNumber--;
             }
         }
