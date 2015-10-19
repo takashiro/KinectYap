@@ -21,14 +21,6 @@ Rectangle {
             id: titleItem
             width: parent.width
             wrapMode: Text.WordWrap
-            font.pointSize: 16
-            text: "PUSH ME TO HIDE"
-        }
-
-        Text{
-            id: titleItem
-            width: parent.width
-            wrapMode: Text.WordWrap
             font.pointSize: 24
             text: "Sample Object"
         }
