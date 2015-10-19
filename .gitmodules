@@ -1,0 +1,3 @@
+[submodule "QtKinect"]
+	path = src/kinect
+	url = https://github.com/takashiro/QtKinect.git
