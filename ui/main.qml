@@ -9,6 +9,8 @@ Window {
     height: 480
     minimumWidth: 640
     minimumHeight: 480
+    maximumWidth: 640
+    maximumHeight: 480
     color: "black"
 
     Item {
@@ -34,6 +36,17 @@ Window {
             y: 0
             anchors.fill: parent
             antialiasing: true
+
+            Loader{
+                id: virtualScene
+                anchors.fill: parent
+            }
+
+            Loader{
+                id: dialog
+                anchors.fill: parent
+                anchors.margins: 40
+            }
 
             SensorState{
                 width: 100
@@ -119,8 +132,8 @@ Window {
                         height: 48
                         image: "image/icon/camera.png"
                         text: qsTr("Camera")
+                        onClicked: pressDown();
                         onPressDown: cameraTimer.start();
-                        onClicked: cameraTimer.start();
                     }
 
                     NuiButton{
@@ -128,9 +141,8 @@ Window {
                         height: 48
                         image: "image/icon/roll.png"
                         text: qsTr("Item")
-                        onPressDown: {
-                            virtualScene.setSource()
-                        }
+                        onClicked: pressDown();
+                        onPressDown: virtualScene.setSource("VirtualScene.qml");
                     }
 
                     NuiButton{
@@ -138,6 +150,7 @@ Window {
                         height: 48
                         image: "image/icon/background.png"
                         text: qsTr("Backgound")
+                        onClicked: pressDown();
                         onPressDown: {
                             if (camera.backgroundRemoved) {
                                 background.gotoNext();
@@ -153,21 +166,8 @@ Window {
                         height: 48
                         image: "image/icon/introduction.png"
                         text: qsTr("Introduction")
-                    }
-
-                    NuiButton{
-                        width: 48
-                        height: 48
-                        image: "image/icon/video.png"
-                        text: qsTr("Video")
-                        onPressDown: cameraTimer.start();
-                    }
-
-                    NuiButton{
-                        width: 48
-                        height: 48
-                        image: "image/icon/talk.png"
-                        text: qsTr("Talk")
+                        onClicked: pressDown();
+                        onPressDown: dialog.setSource("Introduction.qml");
                     }
                 }
             }
@@ -177,7 +177,7 @@ Window {
                 width: 84
                 height: parent.height
                 x: 0
-                y: 0
+                y: 50
                 hidingDirection: Qt.RightToLeft
 
                 buttons: ObjectModel{
@@ -186,14 +186,8 @@ Window {
                         height: 48
                         image: "image/icon/exit.png"
                         text: qsTr("Exit")
+                        onClicked: pressDown();
                         onPressDown: Qt.quit();
-                    }
-
-                    NuiButton{
-                        width: 48
-                        height: 48
-                        image: "image/icon/setting.png"
-                        text: qsTr("Settings")
                     }
 
                     NuiButton{
@@ -202,7 +196,7 @@ Window {
                         image: "image/icon/magic.png"
                         text: qsTr("Debug")
 
-                        onLongTouched: toggleHandLight();
+                        onLongTouched: pressDown();
                         onClicked: toggleHandLight();
                     }
                 }
@@ -215,11 +209,6 @@ Window {
                     rightPanel.slidingHide();
                 }
             }
-        }
-
-        Loader{
-            id: virtualScene
-            anchors.fill: parent
         }
     }
 

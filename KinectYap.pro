@@ -35,4 +35,5 @@ DISTFILES += \
     ui/ImageSlider.qml \
     ui/SensorState.qml \
     ui/VirtualScene.qml \
-    ui/GeneralEntity.qml
+    ui/GeneralEntity.qml \
+    ui/Introduction.qml

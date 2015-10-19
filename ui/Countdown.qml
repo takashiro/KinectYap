@@ -37,6 +37,7 @@ Item {
         id: label
         color: "white"
         font.pointSize: 60
+        anchors.centerIn: parent
     }
 
     DropShadow{
