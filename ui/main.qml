@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Window 2.2
-import QtQml.Models 2.1
+import QtQml.Models 2.2
 import Kinect 1.0
 
 Window {
@@ -142,7 +142,14 @@ Window {
                         image: "image/icon/roll.png"
                         text: qsTr("Item")
                         onClicked: pressDown();
-                        onPressDown: virtualScene.setSource("VirtualScene.qml");
+                        onPressDown: {
+                            if(virtualScene.source == ""){
+                                virtualScene.visible = true;
+                                virtualScene.source = "VirtualScene.qml";
+                            }else{
+                                virtualScene.visible = false;
+                            }
+                        }
                     }
 
                     NuiButton{

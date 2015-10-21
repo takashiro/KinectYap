@@ -36,4 +36,5 @@ DISTFILES += \
     ui/SensorState.qml \
     ui/VirtualScene.qml \
     ui/GeneralEntity.qml \
-    ui/Introduction.qml
+    ui/Introduction.qml \
+    ui/EntityScene.qml
