@@ -41,6 +41,7 @@ Item {
         anchors.margins: 40
         rows: 2
         columns: 3
+        spacing: 5
 
         Repeater{
             id: objectList
@@ -53,23 +54,26 @@ Item {
                 mesh: model.mesh
                 material: model.material
                 diffuse: model.diffuse
-                objectX: model.x
-                objectY: model.y
-                objectZ: model.z
 
                 function select()
                 {
-                    selectedIndex = index;
+                    if (selectedIndex == -1)
+                        selectedIndex = index;
                 }
 
                 MouseArea {
                     anchors.fill: parent
                     onClicked: parent.select();
+                    hoverEnabled: true
+                    onEntered: parent.border = selectedIndex != index;
+                    onExited: parent.border = false;
                 }
 
                 TNuiHandArea{
                     anchors.fill: parent
                     onPressDown: parent.select();
+                    onEntered: parent.border = selectedIndex != index;
+                    onExited: parent.border = false;
                 }
             }
         }
@@ -85,8 +89,24 @@ Item {
         if (0 <= selectedIndex && selectedIndex < objectModel.count) {
             var target = objectList.itemAt(selectedIndex);
             target.visible = true;
-            target.width = 360;
-            target.height = 460;
+            target.width = 560;
+            target.height = 400;
+        }
+    }
+
+    Connections {
+        target: rightHand
+        onXChanged: {
+            if (0 <= selectedIndex && selectedIndex < objectModel.count) {
+                var target = objectList.itemAt(selectedIndex);
+                target.xRotate = rightHand.y;
+            }
+        }
+        onYChanged: {
+            if (0 <= selectedIndex && selectedIndex < objectModel.count) {
+                var target = objectList.itemAt(selectedIndex);
+                target.yRotate = rightHand.x;
+            }
         }
     }
 

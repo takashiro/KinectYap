@@ -4,6 +4,7 @@ import QtQml.Models 2.2
 import Kinect 1.0
 
 Window {
+    id: rootWindow
     visible: true
     width: 640
     height: 480
